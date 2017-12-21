@@ -25,12 +25,12 @@ public class TaskController {
 		Task task1 = new Task();
 		Task task2 = new Task();
 		
-		task1.setTaskId(1);
+		task1.setTaskID(1);
 		task1.setDescription("update model");
 		task1.setStatus("OPEN");
 		task1.setAssignedTo("Ed");
 		
-		task2.setTaskId(2);
+		task2.setTaskID(2);
 		task2.setDescription("create POJO");
 		task2.setStatus("OPEN");
 		task2.setAssignedTo("Adil");
