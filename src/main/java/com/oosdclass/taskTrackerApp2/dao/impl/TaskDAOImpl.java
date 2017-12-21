@@ -10,10 +10,12 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import com.oosdclass.taskTrackerApp2.dao.TaskDAO;
 import com.oosdclass.taskTrackerApp2.model.Task;
 
+@Repository
 public class TaskDAOImpl implements TaskDAO {
 	
 	private JdbcTemplate jdbcTemplate;

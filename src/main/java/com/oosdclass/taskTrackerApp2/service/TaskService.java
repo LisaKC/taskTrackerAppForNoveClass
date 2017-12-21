@@ -1,5 +1,11 @@
 package com.oosdclass.taskTrackerApp2.service;
 
-public class TaskService {
+import java.util.List;
+
+import com.oosdclass.taskTrackerApp2.model.Task;
+
+public interface TaskService {
+	
+	List<Task> getAllTask();
 
 }

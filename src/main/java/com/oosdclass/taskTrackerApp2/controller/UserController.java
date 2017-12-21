@@ -27,7 +27,7 @@ public class UserController {
 	public ModelAndView login(User userLoginFormObject) {
 		ModelAndView model = null;
 		if(userService.isUserValid(userLoginFormObject)) {
-			model = new ModelAndView("viewTask");
+			model = new ModelAndView("redirect:/adminTasks");
 		} else {
 			model = new ModelAndView("home");
 			model.addObject("error", "Username does not exist");
