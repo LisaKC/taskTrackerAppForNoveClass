@@ -9,9 +9,10 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
-import org.springframework.scheduling.config.Task;
+import org.springframework.jdbc.core.RowMapper;
 
 import com.oosdclass.taskTrackerApp2.dao.TaskDAO;
+import com.oosdclass.taskTrackerApp2.model.Task;
 
 public class TaskDAOImpl implements TaskDAO {
 	
@@ -32,7 +33,7 @@ public class TaskDAOImpl implements TaskDAO {
 					
 					List<Task> list = new ArrayList<Task>();
 					while (rs.next()) {
-						Task task = new Task(null);
+						Task task = new Task();
 						task.setTaskId(rs.getInt(1));
 						task.setTaskDescription(rs.getString(2));
 						task.setAssignedTo(rs.getString(3));
@@ -47,6 +48,29 @@ public class TaskDAOImpl implements TaskDAO {
 			return null;
 		}
 	}
+	
+	@Override
+	public Task retrieveByTaskId(int taskId) {
+		try {
+			String sql = "select * from user where taskId=?";
+			Task task = (Task) jdbcTemplate.queryForObject(sql, new Object[] { taskId }, new RowMapper<Task>() {
+				
+				@Override
+				public Task mapRow(ResultSet rs, int rowNum) throws SQLException {
+					Task task = new Task();
+					task.setTaskId(rs.getInt(1));
+					task.setTaskDescription(rs.getString(2));
+					task.setAssignedTo(rs.getString(3));
+					task.setStatus(rs.getString(4));
+					return task;
+				}
+			});
+			return task;
+		} catch (EmptyResultDataAccessException ex) {
+			return null;
+		}
+	}
+	
 }
 
 

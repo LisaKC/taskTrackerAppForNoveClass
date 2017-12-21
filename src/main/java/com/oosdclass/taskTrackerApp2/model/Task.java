@@ -6,6 +6,7 @@ public class Task {
 	private String taskDescription;
 	private String assignedTo;
 	private String status;
+	
 	public int getTaskId() {
 		return taskId;
 	}
@@ -31,6 +32,4 @@ public class Task {
 		this.status = status;
 	}
 	
-	
-
 }

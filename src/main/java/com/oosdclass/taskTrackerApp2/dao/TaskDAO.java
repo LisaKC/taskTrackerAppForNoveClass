@@ -2,10 +2,14 @@ package com.oosdclass.taskTrackerApp2.dao;
 
 import java.util.List;
 
-import org.springframework.scheduling.config.Task;
+import com.oosdclass.taskTrackerApp2.model.Task;
+
+
 
 public interface TaskDAO {
 	
 	public List<Task> retrieveAllTasks();
+
+	public Task retrieveByTaskId(int taskId);
 
 }
