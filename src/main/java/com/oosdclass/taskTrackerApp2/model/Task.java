@@ -2,22 +2,22 @@ package com.oosdclass.taskTrackerApp2.model;
 
 public class Task {
 	
-	private int taskId;
-	private String taskDescription;
+	private int taskID;
+	private String description;
 	private String assignedTo;
 	private String status;
 	
-	public int getTaskId() {
-		return taskId;
+	public int getTaskID() {
+		return taskID;
 	}
-	public void setTaskId(int taskId) {
-		this.taskId = taskId;
+	public void setTaskID(int taskID) {
+		this.taskID = taskID;
 	}
-	public String getTaskDescription() {
-		return taskDescription;
+	public String getDescription() {
+		return description;
 	}
-	public void setTaskDescription(String taskDescription) {
-		this.taskDescription = taskDescription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public String getAssignedTo() {
 		return assignedTo;

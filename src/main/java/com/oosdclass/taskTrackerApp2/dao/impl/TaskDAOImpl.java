@@ -34,8 +34,8 @@ public class TaskDAOImpl implements TaskDAO {
 					List<Task> list = new ArrayList<Task>();
 					while (rs.next()) {
 						Task task = new Task();
-						task.setTaskId(rs.getInt(1));
-						task.setTaskDescription(rs.getString(2));
+						task.setTaskID(rs.getInt(1));
+						task.setDescription(rs.getString(2));
 						task.setAssignedTo(rs.getString(3));
 						task.setStatus(rs.getString(4));
 						list.add(task);
@@ -50,16 +50,16 @@ public class TaskDAOImpl implements TaskDAO {
 	}
 	
 	@Override
-	public Task retrieveByTaskId(int taskId) {
+	public Task retrieveByTaskID(int taskID) {
 		try {
 			String sql = "select * from user where taskId=?";
-			Task task = (Task) jdbcTemplate.queryForObject(sql, new Object[] { taskId }, new RowMapper<Task>() {
+			Task task = (Task) jdbcTemplate.queryForObject(sql, new Object[] { taskID }, new RowMapper<Task>() {
 				
 				@Override
 				public Task mapRow(ResultSet rs, int rowNum) throws SQLException {
 					Task task = new Task();
-					task.setTaskId(rs.getInt(1));
-					task.setTaskDescription(rs.getString(2));
+					task.setTaskID(rs.getInt(1));
+					task.setDescription(rs.getString(2));
 					task.setAssignedTo(rs.getString(3));
 					task.setStatus(rs.getString(4));
 					return task;
