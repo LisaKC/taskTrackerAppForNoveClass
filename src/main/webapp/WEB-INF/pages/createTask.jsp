@@ -11,8 +11,8 @@
 
 <link href="${contextPath}/resources/dist/css/bootstrap.css" rel="stylesheet">
 
-<title>Task Creation</title>
-
+<title>Create Task</title>
+ <h4>Create New Task</h4>
 </head>
 
 <body style="margin:30;padding:30">
