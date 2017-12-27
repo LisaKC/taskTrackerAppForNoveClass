@@ -19,11 +19,11 @@ public class TaskServiceImpl implements TaskService {
 	public List<Task> getAllTask() {
 		return taskdao.retrieveAllTasks();
 	}
-
-	//to be replaced by whatever the service layer creates
+	//to be replaced by whatever the service layer creates - this is my attempt at the service layer!
 	@Override
-	public boolean saveTask(Task task) {
-		return false;
+	public void saveTask(Task task) {
+		task.setStatus("OPEN");
+		task.setAssignedTo("UNASSIGNED");
+		TaskDAO.saveTask(task);
 	}
-
 }

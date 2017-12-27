@@ -9,6 +9,6 @@ public interface TaskService {
 	List<Task> getAllTask();
 
 	//to be replaced with whatever the savetask method is
-	boolean saveTask(Task task);
+	void saveTask(Task task);
 
 }

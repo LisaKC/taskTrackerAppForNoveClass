@@ -21,7 +21,6 @@ public class UserServiceImpl implements UserService {
 		if(userFromDb == null) {
 			return false;
 		}
-		
 		if(user.getUsername().equals(userFromDb.getUsername()) && user.getPassword().equals(userFromDb.getPassword())) {
 			return true;
 		} else {

@@ -73,6 +73,10 @@ public class TaskDAOImpl implements TaskDAO {
 		}
 	}
 	
+	public void saveTask(Task task) {
+		
+	}
+	
 }
 
 
