@@ -20,22 +20,23 @@
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
 <div class="container">
 	<div class="row">
-		<form role="form" id="contact-form" class="contact-form">
+		<form:form action="createTask" modelAttribute="task" method="post">
 
 
                   	<div class="row">
                   		<div class="col-md-12">
                   		<div class="form-group">
-                            <textarea class="form-control textarea" rows="3" name="Description" id="Description" placeholder="Describe task here"></textarea>
+                            <form:textarea path="description" class="form-control textarea" rows="3" name="Description" id="Description" placeholder="Describe task here"/>
                   		</div>
                   	</div>
                     </div>
                     <div class="row">
                     <div class="col-md-12">
-                  <button type="submit" class="btn main-btn pull-right">Submit</button>
+                    <input type="submit" value="Submit" class="btn main-btn btn-success pull-right">
                   </div>
                   </div>
-                </form>
+                </form:form>
+
 	</div>
 </div>
 

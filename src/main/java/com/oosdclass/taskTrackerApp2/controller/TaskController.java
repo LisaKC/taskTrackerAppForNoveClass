@@ -41,7 +41,7 @@ public class TaskController {
 	public ModelAndView createTask(Task task) {
 		ModelAndView model=null;
 		taskService.saveTask(task); 
-		model = new ModelAndView("redirect:/viewTask");
+		model = new ModelAndView("redirect:/adminTasks");
 		return model;
 	}
 }

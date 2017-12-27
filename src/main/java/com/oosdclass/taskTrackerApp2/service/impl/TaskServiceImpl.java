@@ -24,6 +24,6 @@ public class TaskServiceImpl implements TaskService {
 	public void saveTask(Task task) {
 		task.setStatus("OPEN");
 		task.setAssignedTo("UNASSIGNED");
-		TaskDAO.saveTask(task);
+		taskdao.saveTask(task);
 	}
 }

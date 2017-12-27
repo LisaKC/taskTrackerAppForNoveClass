@@ -10,9 +10,8 @@ public interface TaskDAO {
 
 	public Task retrieveByTaskID(int taskID);
 	
-	//to be replaced with whatever the DAO team creates
-	public static void saveTask(Task task) {
+	public void saveTask(Task task);
 		
-	}
+	
 	
 	}
