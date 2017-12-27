@@ -19,7 +19,7 @@
 	<div class="container">
 <!--This is button that goes to create task screen -->
 		<div class="row col-lg-6 col-md-offset-2 custyle">
-		<a href="${contextPath}/taskForm"
+		<a href="${contextPath}/createTaskForm"
 						class="btn btn-primary btn-xs pull-right"><b>+</b> Add a new
 						task</a>
 			<table class="table table-striped custab">		

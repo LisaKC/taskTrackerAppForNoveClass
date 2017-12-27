@@ -20,4 +20,10 @@ public class TaskServiceImpl implements TaskService {
 		return taskdao.retrieveAllTasks();
 	}
 
+	//to be replaced by whatever the service layer creates
+	@Override
+	public boolean saveTask(Task task) {
+		return false;
+	}
+
 }

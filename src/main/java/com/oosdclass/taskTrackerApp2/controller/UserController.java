@@ -15,17 +15,22 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
+	//GET: display user form
 	@RequestMapping(value = "/")
 	public ModelAndView login(ModelAndView model) {
+		
 		User user = new User();
 		model.addObject(user);
 		model.setViewName("home");
 		return model;
 	}
 	
+	//POST: post user info
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView login(User userLoginFormObject) {
+		
 		ModelAndView model = null;
+		
 		if(userService.isUserValid(userLoginFormObject)) {
 			model = new ModelAndView("redirect:/adminTasks");
 		} else {
