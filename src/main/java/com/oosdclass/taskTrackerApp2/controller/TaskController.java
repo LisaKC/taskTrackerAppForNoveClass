@@ -18,13 +18,22 @@ public class TaskController {
 	@Autowired
 	TaskService taskService;
 	
-	//GET: show the task view page - map viewTasks method to web page
+	//GET: show the task view page - map viewTasks method to web page - for ADMIN
 	@RequestMapping(value="/adminTasks")
-	public ModelAndView viewTasks(ModelAndView model) {
+	public ModelAndView viewAdminTasks(ModelAndView model) {
 		//map list of tasks to table in view page
 		List<Task> taskList = taskService.getAllTask();
 		model.addObject(taskList);
-		model.setViewName("viewTask");
+		model.setViewName("adminTask");
+		return model;	
+	}
+	//GET: show the task view page - for EMPLOYEES
+	@RequestMapping(value="/empTasks")
+	public ModelAndView viewEmpTasks(ModelAndView model) {
+		//map list of tasks to table in view page
+		List<Task> taskList = taskService.getAllTask();
+		model.addObject(taskList);
+		model.setViewName("empTask");
 		return model;	
 	}
 	//GET: show the admin only "create task" form

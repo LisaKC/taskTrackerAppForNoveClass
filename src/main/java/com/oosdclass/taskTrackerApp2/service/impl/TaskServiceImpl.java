@@ -12,6 +12,11 @@ import com.oosdclass.taskTrackerApp2.service.TaskService;
 @Service
 public class TaskServiceImpl implements TaskService {
 	
+	//create default properties
+	public static final String DEFAULT_STATUS = "OPEN";
+	public static final String DEFAULT_ASSIGNED = "UNASSIGNED";
+	
+	//Dependency Injection & Inversion Of Control
 	@Autowired
 	TaskDAO taskdao;
 	
@@ -22,8 +27,8 @@ public class TaskServiceImpl implements TaskService {
 	//to be replaced by whatever the service layer creates - this is my attempt at the service layer!
 	@Override
 	public void saveTask(Task task) {
-		task.setStatus("OPEN");
-		task.setAssignedTo("UNASSIGNED");
+		task.setStatus(DEFAULT_STATUS);
+		task.setAssignedTo(DEFAULT_ASSIGNED);
 		taskdao.saveTask(task);
 	}
 }

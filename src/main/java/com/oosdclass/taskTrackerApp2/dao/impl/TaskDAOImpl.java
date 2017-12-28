@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import com.oosdclass.taskTrackerApp2.dao.TaskDAO;
 import com.oosdclass.taskTrackerApp2.model.Task;
 
+//Dependency Injection, Inversion Of Control
 @Repository
 public class TaskDAOImpl implements TaskDAO {
 	
@@ -78,6 +79,14 @@ public class TaskDAOImpl implements TaskDAO {
 				task.getAssignedTo(), task.getStatus()
 		});
 		
+	}
+	//Allows the employee to update task STATUS and ASSIGNED TO
+	@Override
+	public void updateTask(Task task) {
+		String sql = " Update task SET  (assignedTo,status) values (?,?) + "
+				+ "WHERE taskId=?";
+
+		jdbcTemplate.update(sql, new Object[] { task.getAssignedTo(), task.getStatus(), task.getTaskID() });
 	}
 	
 }

@@ -31,13 +31,26 @@ public class UserController {
 		
 		ModelAndView model = null;
 		
-		if(userService.isUserValid(userLoginFormObject)) {
-			model = new ModelAndView("redirect:/adminTasks");
-		} else {
+		if(!userService.doesUserExist(userLoginFormObject)) {
 			model = new ModelAndView("home");
 			model.addObject("error", "Username does not exist");
+		} else if(!userService.isUserValid(userLoginFormObject)) {
+			model = new ModelAndView("home");
+			model.addObject("error", "User input is not valid");
+		} else if(userService.isUserAdmin(userLoginFormObject)){
+			model = new ModelAndView("redirect:/adminTasks");
+		} else {
+			model = new ModelAndView("redirect:/empTasks");
 		}
 		return model;
+		
+//		if(userService.isUserValid(userLoginFormObject)) {
+//			model = new ModelAndView("redirect:/adminTasks");
+//		} else {
+//			model = new ModelAndView("home");
+//			model.addObject("error", "Username does not exist");
+//		}
+//		return model;
 	}
 
 }

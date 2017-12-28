@@ -6,4 +6,8 @@ public interface UserService {
 	
 	public boolean isUserValid(User user);
 
+	boolean doesUserExist(User user);
+
+	boolean isUserAdmin(User user);
+
 }

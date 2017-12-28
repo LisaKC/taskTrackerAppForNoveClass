@@ -13,7 +13,7 @@
 <link href="${contextPath}/resources/dist/css/bootstrap.css"
 	rel="stylesheet">
 
-<title>Task Management Screen</title>
+<title>Admin Task Management Screen</title>
 </head>
 <body>
 	<div class="container">
