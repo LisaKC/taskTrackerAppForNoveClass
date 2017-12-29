@@ -46,7 +46,8 @@
 					<br />
 					<input type="submit" value="login" class="btn btn-success btn-block">
 				</form:form>
-				
+	<!-- Error message for incorrect login info -->
+				<br />
 				<c:if test="${not empty error}">
 				<table>
 					<tr>

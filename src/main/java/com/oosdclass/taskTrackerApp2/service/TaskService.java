@@ -10,4 +10,8 @@ public interface TaskService {
 
 	void saveTask(Task task);
 
+	void updateTask(Task task);
+	
+	Task getByTaskId(int taskID);
+
 }

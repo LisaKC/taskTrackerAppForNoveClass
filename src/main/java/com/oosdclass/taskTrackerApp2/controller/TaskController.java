@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -36,7 +37,7 @@ public class TaskController {
 		model.setViewName("empTask");
 		return model;	
 	}
-	//GET: show the admin only "create task" form
+	//GET: show the admin-only "create task" form
 	@RequestMapping(value="/createTaskForm") 
 	public ModelAndView createTaskForm(ModelAndView model) {	
 		//map create task form in the view page
@@ -53,4 +54,13 @@ public class TaskController {
 		model = new ModelAndView("redirect:/adminTasks");
 		return model;
 	}
+	//GET: show the employee-only "update task" form
+	@RequestMapping(value="/viewTask/{taskID}") 
+	public ModelAndView viewTask(ModelAndView model, @PathVariable int taskID) {	
+		Task task = taskService.getByTaskId(taskID);
+		model.addObject(task);
+		model.setViewName("viewTask");
+		return model;
+	}
+
 }

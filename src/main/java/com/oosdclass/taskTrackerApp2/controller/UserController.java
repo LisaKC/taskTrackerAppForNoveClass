@@ -44,13 +44,6 @@ public class UserController {
 		}
 		return model;
 		
-//		if(userService.isUserValid(userLoginFormObject)) {
-//			model = new ModelAndView("redirect:/adminTasks");
-//		} else {
-//			model = new ModelAndView("home");
-//			model.addObject("error", "Username does not exist");
-//		}
-//		return model;
 	}
 
 }
