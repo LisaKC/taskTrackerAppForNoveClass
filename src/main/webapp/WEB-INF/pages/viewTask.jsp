@@ -6,8 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="${contextPath}/resources/dist/css/bootstrap.css"
-	rel="stylesheet">
+<link href="${contextPath}/resources/dist/css/bootstrap.css" rel="stylesheet">
 <title>Update Task</title>
 </head>
 <body>
@@ -24,7 +23,7 @@
 					</tr>
 				</thead>
 				<tr>
-				<td><a href="${contextPath}/viewTask/${taskID}">${task.taskID}</a></td>
+				<td>${task.taskID}</td>
 				<td>${task.description}</td>
 				<td>${task.status}</td>
 				<td>${task.assignedTo}</td>
@@ -35,9 +34,11 @@
 	</div>
 	<div class="container">
 		<div class="row col-lg-6 col-md-offset-2">
-		<a href="#" class="btn"><i class="icon-user"></i> <strong>Assign To Me</strong></a>
-		<a href="#" class="btn"><i class="icon-edit"></i> <strong>IN PROGRESS</strong></a>
-		<a href="#" class="btn"><i class="icon-ok"></i> <strong>COMPLETE</strong></a>
+		<form:form action="updateTask" modelAttribute="task" method="post">
+		<a href="${contextPath}/updateTask" class="btn btn-primary btn-block"><i class="glyphicon glyphicon-user"></i> <strong>Assign To Me</strong></a>
+		<a href="${contextPath}/updateTask" class="btn btn-warning btn-block"><i class="glyphicon glyphicon-edit"></i> <strong>IN PROGRESS</strong></a>
+		<a href="${contextPath}/updateTask" class="btn btn-success btn-block"><i class="glyphicon glyphicon-ok"></i> <strong>COMPLETE</strong></a>
+		</form:form>
 		</div>
 	</div>
 </body>

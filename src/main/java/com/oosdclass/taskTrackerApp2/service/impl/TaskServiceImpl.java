@@ -36,15 +36,15 @@ public class TaskServiceImpl implements TaskService {
 		task.setAssignedTo(DEFAULT_ASSIGNED);
 		taskdao.saveTask(task);
 	}
+	@Override
+	public Task getByTaskId(int taskId) {
+		return taskdao.retrieveByTaskID(taskId);
+	}
 	//update the status and assignedTo from the employee
 	@Override
 	public void updateTask(Task task) {
 		task.setStatus(UPDATED_STATUS);
 		task.setAssignedTo(UPDATED_ASSIGNED);
 		taskdao.updateTask(task);
-	}
-	@Override
-	public Task getByTaskId(int taskId) {
-		return taskdao.retrieveByTaskID(taskId);
 	}
 }

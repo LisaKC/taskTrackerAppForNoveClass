@@ -8,9 +8,9 @@ public interface TaskService {
 	
 	List<Task> getAllTask();
 
-	void saveTask(Task task);
+	public void saveTask(Task task);
 
-	void updateTask(Task task);
+	public void updateTask(Task task);
 	
 	Task getByTaskId(int taskID);
 

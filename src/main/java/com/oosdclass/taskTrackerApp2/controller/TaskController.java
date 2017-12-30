@@ -62,5 +62,12 @@ public class TaskController {
 		model.setViewName("viewTask");
 		return model;
 	}
-
+	//POST: update the task properties STATUS and ASSIGNED TO, then send back to emp tasks page
+	@RequestMapping(value="/updateTask", method = RequestMethod.POST)
+	public ModelAndView updateTask(Task task) {
+		ModelAndView model=null;
+		taskService.updateTask(task);
+		model = new ModelAndView("redirect:/empTasks");
+		return model;
+	}
 }
