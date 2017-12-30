@@ -28,7 +28,6 @@
 				<td>${task.status}</td>
 				<td>${task.assignedTo}</td>
 				</tr>
-					
 			</table>
 		</div>
 	</div>
