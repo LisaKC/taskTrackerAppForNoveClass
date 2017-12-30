@@ -63,6 +63,9 @@ public class TaskController {
 		return model;
 	}
 	//POST: update the task properties STATUS and ASSIGNED TO, then send back to emp tasks page
+	//you can use post to create a new object or to update a pre-existing object
+	//however, this may not be the most efficient way to update the task object.
+	//I just used this method because I copied it from the "create task" method we already did
 	@RequestMapping(value="/updateTask", method = RequestMethod.POST)
 	public ModelAndView updateTask(Task task) {
 		ModelAndView model=null;

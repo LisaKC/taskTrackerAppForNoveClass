@@ -33,11 +33,22 @@
 	</div>
 	<div class="container">
 		<div class="row col-lg-6 col-md-offset-2">
+		
+<!-- here is my guess as to what the buttons might look like once they are functional - JUST A START -->
 		<form:form action="updateTask" modelAttribute="task" method="post">
 		<a href="${contextPath}/updateTask" class="btn btn-primary btn-block"><i class="glyphicon glyphicon-user"></i> <strong>Assign To Me</strong></a>
 		<a href="${contextPath}/updateTask" class="btn btn-warning btn-block"><i class="glyphicon glyphicon-edit"></i> <strong>IN PROGRESS</strong></a>
 		<a href="${contextPath}/updateTask" class="btn btn-success btn-block"><i class="glyphicon glyphicon-ok"></i> <strong>COMPLETE</strong></a>
 		</form:form>
+		
+<!-- Here is the code for buttons THAT WORKED before I tampered with it :) -->
+<!-- this code wouldn't require the updateTask method that I began writing in the TaskController -->
+<!-- needless to say, it wouldn't update the tasks, either -->
+	<!-- <a href="/empTasks" class="btn btn-primary btn-block"><i class="glyphicon glyphicon-user"></i> <strong>Assign To Me</strong></a> -->
+	<!-- <a href="/empTasks" class="btn btn-warning btn-block"><i class="glyphicon glyphicon-edit"></i> <strong>IN PROGRESS</strong></a> -->
+	<!-- <a href="/empTasks" class="btn btn-success btn-block"><i class="glyphicon glyphicon-ok"></i> <strong>COMPLETE</strong></a> -->
+<!-- The buttons are clickable, but will not update task; they will just reroute you to the emp tasks page -->
+		
 		</div>
 	</div>
 </body>

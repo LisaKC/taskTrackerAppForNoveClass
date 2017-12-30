@@ -12,6 +12,7 @@ public interface TaskDAO {
 	
 	public void saveTask(Task task);
 
+	//here's the update task method for the buttons
 	public void updateTask(Task task);
 	
 	}

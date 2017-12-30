@@ -21,8 +21,6 @@
 <div class="container">
 	<div class="row">
 		<form:form action="createTask" modelAttribute="task" method="post">
-
-
                   	<div class="row">
                   		<div class="col-md-12">
                   		<div class="form-group">
@@ -36,7 +34,6 @@
                   </div>
                   </div>
                 </form:form>
-
 	</div>
 </div>
 

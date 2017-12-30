@@ -17,6 +17,7 @@ public class TaskServiceImpl implements TaskService {
 	public static final String DEFAULT_ASSIGNED = "UNASSIGNED";
 	
 	//create updated object using employee input
+	//need to figure out how to update input according to buttons!
 	public static final String UPDATED_STATUS = "input here";
 	public static final String UPDATED_ASSIGNED = "input here";
 	
@@ -41,6 +42,7 @@ public class TaskServiceImpl implements TaskService {
 		return taskdao.retrieveByTaskID(taskId);
 	}
 	//update the status and assignedTo from the employee
+	//I don't know how to take the input from the buttons and insert them into the setters
 	@Override
 	public void updateTask(Task task) {
 		task.setStatus(UPDATED_STATUS);

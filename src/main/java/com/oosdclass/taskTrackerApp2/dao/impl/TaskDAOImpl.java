@@ -78,17 +78,13 @@ public class TaskDAOImpl implements TaskDAO {
 		jdbcTemplate.update(sql, new Object[] {task.getDescription(),
 				task.getAssignedTo(), task.getStatus()
 		});
-		
 	}
 	//Allows the employee to update task STATUS and ASSIGNED TO
+	//not totally sure how this works yet... help
 	@Override
 	public void updateTask(Task task) {
 		String sql = "Update task SET (status, assignedTo) values (?,?) + "
 				+ "WHERE taskId=?";
 		jdbcTemplate.update(sql, new Object[] { task.getAssignedTo(), task.getStatus(), task.getTaskID() });
 	}
-	
 }
-
-
-

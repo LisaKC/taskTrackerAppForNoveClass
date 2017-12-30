@@ -9,9 +9,10 @@ public interface TaskService {
 	List<Task> getAllTask();
 
 	public void saveTask(Task task);
-
-	public void updateTask(Task task);
 	
 	Task getByTaskId(int taskID);
 
+	//this is to update the task method for the buttons
+	public void updateTask(Task task);
+	
 }
