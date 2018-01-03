@@ -37,13 +37,18 @@
 		<div class="row col-lg-6 col-md-offset-2">
 		
 <!-- these are buttons that will update the parameters of the specific task displayed -->
-		<a href="${contextPath}/updateTask/ASSIGN/${task.taskID}/${username}" class="btn btn-primary btn-block">
-			<i class="glyphicon glyphicon-user"></i><strong>Assign To Me</strong></a>
-		<a href="${contextPath}/updateTask/IN-PROGRESS/${task.taskID}/${username}" class="btn btn-warning btn-block">
-			<i class="glyphicon glyphicon-edit"></i> <strong>IN PROGRESS</strong></a>
-		<a href="${contextPath}/updateTask/COMPLETED/${task.taskID}/${username}" class="btn btn-success btn-block">
-			<i class="glyphicon glyphicon-ok"></i> <strong>COMPLETED</strong></a>
-		
+	<!-- c:if is a .jsp condition to check something in order to run this section of code -->
+	<!-- we use a condition for each button, so it won't display under certain circumstances -->
+		<c:if test="${task.assignedTo == 'UNASSIGNED'}">
+			<a href="${contextPath}/updateTask/ASSIGN/${task.taskID}/${username}" class="btn btn-primary btn-block">
+				<i class="glyphicon glyphicon-user"></i><strong>Assign To Me</strong></a>
+		</c:if>
+<!-- OK HERE IS WHERE MY PROGRESS ENDS, I'VE GOT TO PICK IT UP AND FINISH THE CONDITIONAL BUTTONS LATER -->
+			<a href="${contextPath}/updateTask/IN-PROGRESS/${task.taskID}/${username}" class="btn btn-warning btn-block">
+				<i class="glyphicon glyphicon-edit"></i> <strong>IN PROGRESS</strong></a>
+			<a href="${contextPath}/updateTask/COMPLETED/${task.taskID}/${username}" class="btn btn-success btn-block">
+				<i class="glyphicon glyphicon-ok"></i> <strong>COMPLETED</strong></a>
+
 		</div>
 	</div>
 </body>
