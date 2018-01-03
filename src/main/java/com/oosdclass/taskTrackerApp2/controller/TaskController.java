@@ -12,10 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.oosdclass.taskTrackerApp2.model.Task;
 import com.oosdclass.taskTrackerApp2.service.TaskService;
 
+//Spring Framework: Controller
 @Controller
 public class TaskController {
 	
-	//Link the UI to the Service layer
+	//DI/IOC: Autowire the UI to the Service layer
 	@Autowired
 	TaskService taskService;
 	
@@ -64,27 +65,18 @@ public class TaskController {
 		model.setViewName("viewTask");
 		return model;
 	}
-//	//POST: update the task properties STATUS and ASSIGNED TO, then send back to emp tasks page
-//	//you can use post to create a new object or to update a pre-existing object
-//	//however, this may not be the most efficient way to update the task object.
-//	//I just used this method because I copied it from the "create task" method we already did
-//	@RequestMapping(value="/updateTask", method = RequestMethod.POST)
-//	public ModelAndView updateTask(Task task) {
-//		ModelAndView model=null;
-//		taskService.updateTask(task);
-//		model = new ModelAndView("redirect:/empTasks");
-//		return model;
-//	}
-	//attempts are being made to create a new viewpage/method for each button
-	//BUTTON: ASSIGN TO ME
+	//From View Task page: Button: ASSIGN TO ME - reroute to empTasks
 	@RequestMapping(value="/updateTask/{status}/{taskID}/{username}", method = RequestMethod.GET)
+	//use @PathVariable to pull variables from URL/use them as values for updated attributes
 	public ModelAndView updateStatus(@PathVariable int taskID, @PathVariable String status, @PathVariable String username) {
 		ModelAndView model=null;
 		taskService.updateTaskStatus(taskID, status, username);
 		model = new ModelAndView("redirect:/empTasks/{username}");
 		return model;
-	}	
+	}
+	//From View Task page: Button: UPDATE STATUS: In Progress or Completed - reroute to empTasks
 	@RequestMapping(value="/updateTask/ASSIGN/{taskID}/{username}", method = RequestMethod.GET)
+	//use @PathVariable to pull variables from URL/use them as values for updated attributes
 	public ModelAndView updateAssignedTo(@PathVariable int taskID, @PathVariable String username) {
 		ModelAndView model=null;
 		taskService.updateTaskAssignedTo(taskID, username);

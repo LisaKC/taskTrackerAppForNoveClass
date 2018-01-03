@@ -21,8 +21,9 @@
 	<div class="container">
 		<div class="row main">
 			<div class="main-login main-center">
+<!-- Login Form -->
 				<form:form action="login" class="form-horizontal" method="post" modelAttribute="user">
-				
+	<!-- Username Input Form -->
 					<div class="form-group">
 						<label for="username" class="cols-sm-2 control-label">Username</label>
 						<div class="cols-sm-10">
@@ -32,7 +33,7 @@
 							</div>
 						</div>
 					</div>
-					
+	<!-- Password Input Form -->
 					<div class="form-group">
 						<label for="password" class="cols-sm-2 control-label">Password</label>
 						<div class="cols-sm-10">
@@ -46,7 +47,7 @@
 					<br />
 					<input type="submit" value="login" class="btn btn-success btn-block">
 				</form:form>
-	<!-- Error message for incorrect login info -->
+<!-- Error message for incorrect login info -->
 				<br />
 				<c:if test="${not empty error}">
 				<table>

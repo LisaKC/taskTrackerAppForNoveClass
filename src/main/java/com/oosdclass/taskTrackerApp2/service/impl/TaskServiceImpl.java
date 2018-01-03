@@ -9,14 +9,15 @@ import com.oosdclass.taskTrackerApp2.dao.TaskDAO;
 import com.oosdclass.taskTrackerApp2.model.Task;
 import com.oosdclass.taskTrackerApp2.service.TaskService;
 
+//Spring Framework: this is the service layer
 @Service
 public class TaskServiceImpl implements TaskService {
 	
-	//create default properties
+	//create default properties for new task
 	public static final String DEFAULT_STATUS = "OPEN";
 	public static final String DEFAULT_ASSIGNED = "UNASSIGNED";
 	
-	//Dependency Injection & Inversion Of Control
+	//Dependency Injection & Inversion Of Control: autowire to the data access layer
 	@Autowired
 	TaskDAO taskdao;
 	
@@ -32,29 +33,28 @@ public class TaskServiceImpl implements TaskService {
 		task.setAssignedTo(DEFAULT_ASSIGNED);
 		taskdao.saveTask(task);
 	}
+	//To display just one task in the table - used for employees' update task
 	@Override
 	public Task getByTaskId(int taskId) {
 		return taskdao.retrieveByTaskID(taskId);
 	}
-	
-	//update the status and assignedTo from the employee
-	//I don't know how to take the input from the buttons and insert them into the setters
-//	@Override
-//	public void updateTask(Task task) {
-//		task.setStatus(UPDATED_STATUS);
-//		task.setAssignedTo(UPDATED_ASSIGNED);
-//		taskdao.updateTask(task);
-//	}
+//These are the methods to update the task (using the buttons)
+//the controller and service have two separate methods for updating task: specific to STATUS and ASSIGNEDTO
+//both these methods will invoke ONLY ONE method in the DAO: TaskDAO.UpdateTask
+	//Update the status: these attributes were originally stored in the URL
 	@Override
 	public void updateTaskStatus(int taskID, String status, String username) {
 		Task task = taskdao.retrieveByTaskID(taskID);
 		task.setStatus(status);
+		//send to ONE METHOD in the DAO
 		taskdao.updateTask(task);
 	}
+	//Update the assignedTo: these attributes were originally stored in the URL
 	@Override
 	public void updateTaskAssignedTo(int taskID, String username) {
 		Task task = taskdao.retrieveByTaskID(taskID);
 		task.setAssignedTo(username);
+		//send to ONE METHOD in the DAO
 		taskdao.updateTask(task);
 	}
 }

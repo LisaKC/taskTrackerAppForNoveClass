@@ -8,7 +8,7 @@
 <head>
 
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
-
+<!-- link bootstrap style sheet -->
 <link href="${contextPath}/resources/dist/css/bootstrap.css" rel="stylesheet">
 
 <title>Create Task</title>
@@ -20,6 +20,7 @@
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
 <div class="container">
 	<div class="row">
+<!-- here is the form to create a new task - only allows admin to add description attribute from this page -->
 		<form:form action="createTask" modelAttribute="task" method="post">
                   	<div class="row">
                   		<div class="col-md-12">
@@ -30,6 +31,7 @@
                     </div>
                     <div class="row">
                     <div class="col-md-12">
+<!-- submit button -->
                     <input type="submit" value="Submit" class="btn main-btn btn-success pull-right">
                   </div>
                   </div>
