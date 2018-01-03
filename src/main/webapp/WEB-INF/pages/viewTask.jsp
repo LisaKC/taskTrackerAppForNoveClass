@@ -36,9 +36,9 @@
 		
 <!-- here is my guess as to what the buttons might look like once they are functional - JUST A START -->
 		<form:form action="updateTask" modelAttribute="task" method="post">
-		<a href="${contextPath}/updateTask" class="btn btn-primary btn-block"><i class="glyphicon glyphicon-user"></i> <strong>Assign To Me</strong></a>
-		<a href="${contextPath}/updateTask" class="btn btn-warning btn-block"><i class="glyphicon glyphicon-edit"></i> <strong>IN PROGRESS</strong></a>
-		<a href="${contextPath}/updateTask" class="btn btn-success btn-block"><i class="glyphicon glyphicon-ok"></i> <strong>COMPLETE</strong></a>
+		<a href="${contextPath}/updateTask/ASSIGN/${task.taskID}/${username}" class="btn btn-primary btn-block"><i class="glyphicon glyphicon-user"></i> <strong>Assign To Me</strong></a>
+		<a href="${contextPath}/updateTask/IN-PROGRESS/${task.taskID}/${username}" class="btn btn-warning btn-block"><i class="glyphicon glyphicon-edit"></i> <strong>IN PROGRESS</strong></a>
+		<a href="${contextPath}/updateTask/COMPLETED/${task.taskID}/${username}" class="btn btn-success btn-block"><i class="glyphicon glyphicon-ok"></i> <strong>COMPLETED</strong></a>
 		</form:form>
 		
 <!-- Here is the code for buttons THAT WORKED before I tampered with it :) -->

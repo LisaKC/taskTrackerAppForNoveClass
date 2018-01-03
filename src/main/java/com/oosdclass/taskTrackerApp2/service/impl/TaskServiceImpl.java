@@ -16,11 +16,6 @@ public class TaskServiceImpl implements TaskService {
 	public static final String DEFAULT_STATUS = "OPEN";
 	public static final String DEFAULT_ASSIGNED = "UNASSIGNED";
 	
-	//create updated object using employee input
-	//need to figure out how to update input according to buttons!
-	public static final String UPDATED_STATUS = "input here";
-	public static final String UPDATED_ASSIGNED = "input here";
-	
 	//Dependency Injection & Inversion Of Control
 	@Autowired
 	TaskDAO taskdao;
@@ -41,12 +36,25 @@ public class TaskServiceImpl implements TaskService {
 	public Task getByTaskId(int taskId) {
 		return taskdao.retrieveByTaskID(taskId);
 	}
+	
 	//update the status and assignedTo from the employee
 	//I don't know how to take the input from the buttons and insert them into the setters
+//	@Override
+//	public void updateTask(Task task) {
+//		task.setStatus(UPDATED_STATUS);
+//		task.setAssignedTo(UPDATED_ASSIGNED);
+//		taskdao.updateTask(task);
+//	}
 	@Override
-	public void updateTask(Task task) {
-		task.setStatus(UPDATED_STATUS);
-		task.setAssignedTo(UPDATED_ASSIGNED);
+	public void updateTaskStatus(int taskID, String status, String username) {
+		Task task = taskdao.retrieveByTaskID(taskID);
+		task.setStatus(status);
+		taskdao.updateTask(task);
+	}
+	@Override
+	public void updateTaskAssignedTo(int taskID, String username) {
+		Task task = taskdao.retrieveByTaskID(taskID);
+		task.setAssignedTo(username);
 		taskdao.updateTask(task);
 	}
 }

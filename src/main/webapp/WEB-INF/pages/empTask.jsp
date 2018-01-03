@@ -30,7 +30,7 @@
 				<!-- This is where we are rendering from the array task and displaying on table with help of spring framework -->
 				<c:forEach var="task" items="${taskList}">
 				<tr>
-				<td><a href="${contextPath}/viewTask/${task.taskID}">${task.taskID}</a></td>
+				<td><a href="${contextPath}/viewTask/${task.taskID}/${username}">${task.taskID}</a></td>
 				<td>${task.description}</td>
 				<td>${task.status}</td>
 				<td>${task.assignedTo}</td>

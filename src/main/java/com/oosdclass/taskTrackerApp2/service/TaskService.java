@@ -13,6 +13,6 @@ public interface TaskService {
 	Task getByTaskId(int taskID);
 
 	//this is to update the task method for the buttons
-	public void updateTask(Task task);
-	
+	public void updateTaskStatus(int taskID, String status, String username);
+	public void updateTaskAssignedTo(int taskID, String username);
 }
