@@ -13,7 +13,6 @@
 <body>
 <div class="container">
 		<div class="row col-lg-6 col-md-offset-2 custyle">
-		
 <!-- this is the table that displays the info about the specific task -->
 			<table class="table table-striped custab">		
 				<thead>
@@ -32,11 +31,6 @@
 				<td>${task.assignedTo}</td>
 				</tr>
 			</table>
-		</div>
-	</div>
-	<div class="container">
-		<div class="row col-lg-6 col-md-offset-2">
-		
 <!-- these are buttons that will update the parameters of the specific task displayed -->
 <!-- we use a condition for each button, so it won't display under certain circumstances -->
 		<!-- use c:choose to create conditionals for displaying buttons -->
@@ -58,6 +52,9 @@
 				</c:if>
 			</c:otherwise>
 		</c:choose>
+<!-- button to go back to homepage -->
+			<a href="${contextPath}/" class="btn btn-default btn-block">
+					<i class="glyphicon glyphicon-home"> Back to Login</i></a>
 		</div>
 	</div>
 </body>

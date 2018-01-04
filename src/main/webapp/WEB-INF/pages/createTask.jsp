@@ -37,6 +37,11 @@
                   </div>
                 </form:form>
 	</div>
+<!-- button to go back to homepage -->
+	<div class="row col-lg-6 col-md-offset-2 custyle">
+		<a href="${contextPath}/" class="btn btn-default btn-block">
+					<i class="glyphicon glyphicon-home"> Back to Login</i></a>
+	</div>
 </div>
 
 </body>

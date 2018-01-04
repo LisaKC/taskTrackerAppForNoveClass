@@ -38,6 +38,9 @@
 				</tr>
 				</c:forEach>
 			</table>
+<!-- button to go back to homepage -->
+			<a href="${contextPath}/" class="btn btn-default btn-block">
+					<i class="glyphicon glyphicon-home"> Back to Login</i></a>
 		</div>
 	</div>
 </body>
