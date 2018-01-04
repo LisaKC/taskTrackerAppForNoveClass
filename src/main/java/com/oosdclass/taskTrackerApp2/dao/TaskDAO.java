@@ -15,4 +15,6 @@ public interface TaskDAO {
 	//we use two methods - one for assigned to, one for status - in the controller and service
 	//here, we only need one method
 	public void updateTask(Task task);
+	//Admin can delete a specific task from the adminTasks view page 
+	public void deleteTask(int taskID);
 	}

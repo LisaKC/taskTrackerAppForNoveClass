@@ -25,6 +25,7 @@
 					</tr>
 				</thead>
 				<tr>
+<!-- note that the taskID is NOT hyperlinked anymore -->
 				<td>${task.taskID}</td>
 				<td>${task.description}</td>
 				<td>${task.status}</td>
@@ -37,18 +38,26 @@
 		<div class="row col-lg-6 col-md-offset-2">
 		
 <!-- these are buttons that will update the parameters of the specific task displayed -->
-	<!-- c:if is a .jsp condition to check something in order to run this section of code -->
-	<!-- we use a condition for each button, so it won't display under certain circumstances -->
-		<c:if test="${task.assignedTo == 'UNASSIGNED'}">
-			<a href="${contextPath}/updateTask/ASSIGN/${task.taskID}/${username}" class="btn btn-primary btn-block">
-				<i class="glyphicon glyphicon-user"></i><strong>Assign To Me</strong></a>
-		</c:if>
-<!-- OK HERE IS WHERE MY PROGRESS ENDS, I'VE GOT TO PICK IT UP AND FINISH THE CONDITIONAL BUTTONS LATER -->
-			<a href="${contextPath}/updateTask/IN-PROGRESS/${task.taskID}/${username}" class="btn btn-warning btn-block">
-				<i class="glyphicon glyphicon-edit"></i> <strong>IN PROGRESS</strong></a>
-			<a href="${contextPath}/updateTask/COMPLETED/${task.taskID}/${username}" class="btn btn-success btn-block">
-				<i class="glyphicon glyphicon-ok"></i> <strong>COMPLETED</strong></a>
-
+<!-- we use a condition for each button, so it won't display under certain circumstances -->
+		<!-- use c:choose to create conditionals for displaying buttons -->
+		<c:choose>
+			<%-- c when is a .jsp condition to check something in order to run this section of code, similar to java's if --%>
+			<c:when test="${task.assignedTo == 'UNASSIGNED'}">
+				<a href="${contextPath}/updateTask/ASSIGN/${task.taskID}/${username}" class="btn btn-primary btn-block">
+					<i class="glyphicon glyphicon-user"></i><strong>Assign To Me</strong></a>
+			</c:when>
+			<%-- c:otherwise is the equivalent of java's else --%>
+			<c:otherwise>
+				<c:if test="${task.status ne 'IN-PROGRESS'}">
+					<a href="${contextPath}/updateTask/IN-PROGRESS/${task.taskID}/${username}" class="btn btn-warning btn-block">
+						<i class="glyphicon glyphicon-edit"></i> <strong>IN PROGRESS</strong></a>
+				</c:if>
+				<c:if test="${task.status ne 'COMPLETED'}">
+					<a href="${contextPath}/updateTask/COMPLETED/${task.taskID}/${username}" class="btn btn-success btn-block">
+						<i class="glyphicon glyphicon-ok"></i> <strong>COMPLETED</strong></a>
+				</c:if>
+			</c:otherwise>
+		</c:choose>
 		</div>
 	</div>
 </body>

@@ -83,4 +83,12 @@ public class TaskController {
 		model = new ModelAndView("redirect:/empTasks/{username}");
 		return model;
 	}
+	//From admin's view task: delete task button
+	@RequestMapping(value="/deleteTask/{taskID}", method = RequestMethod.GET)
+	public ModelAndView deleteTask(@PathVariable int taskID) {
+		ModelAndView model=null;
+		taskService.deleteTask(taskID);
+		model = new ModelAndView("redirect:/adminTasks");
+		return model;
+	}
 }

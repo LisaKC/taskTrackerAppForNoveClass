@@ -92,4 +92,10 @@ public class TaskDAOImpl implements TaskDAO {
 		String sql = "Update task SET assignedTo =?, status = ? where taskId=?";
 		jdbcTemplate.update(sql, new Object[] { task.getAssignedTo(), task.getStatus(), task.getTaskID() });
 	}
+	//Admin can delete a specific task from the adminTasks view page 
+	@Override
+	public void deleteTask(int taskID) {
+		String sql = "DELETE from task where taskID = ?";
+		jdbcTemplate.update(sql, new Object[] {taskID});
+	}
 }

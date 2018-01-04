@@ -40,6 +40,9 @@
 				<td>${task.description}</td>
 				<td>${task.status}</td>
 				<td>${task.assignedTo}</td>
+<!-- delete button -->
+				<td><a href="${contextPath}/deleteTask/${task.taskID}" class="btn btn-danger btn-block">
+					<i class="glyphicon glyphicon-trash"></i></a></td>
 				</tr>
 				</c:forEach>
 			</table>

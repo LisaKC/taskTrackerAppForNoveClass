@@ -57,4 +57,9 @@ public class TaskServiceImpl implements TaskService {
 		//send to ONE METHOD in the DAO
 		taskdao.updateTask(task);
 	}
+	//Admin can delete a specific task from the adminTasks view page 
+	@Override
+	public void deleteTask(int taskID) {
+		taskdao.deleteTask(taskID);
+	}
 }

@@ -16,4 +16,6 @@ public interface TaskService {
 	//both these methods will invoke ONLY ONE method in the DAO: TaskDAO.UpdateTask
 	public void updateTaskStatus(int taskID, String status, String username);
 	public void updateTaskAssignedTo(int taskID, String username);
+	//Admin can delete a specific task from the adminTasks view page 
+	void deleteTask(int taskID);
 }
